@@ -33,9 +33,22 @@ npm run build
 npm run lint:style
 ```
 
-Сайт публикуется на GitHub Pages: https://evgeny-markov.github.io/mini-crm/
+## Публикация на GitHub Pages
 
-Сборка идёт из `.github/workflows/pages.yml`. Две публичные переменные задаются секретами репозитория `VITE_SUPABASE_URL` и `VITE_SUPABASE_ANON_KEY` (Settings → Secrets and variables → Actions). В git их нет: Vite подставляет их в сборку. В готовом сайте оказывается только публичный ключ клиента. `service_role` туда не входит. Для прямого адреса вроде `/objects` в сборку копируется `404.html`, иначе GitHub Pages не отдаст клиентский маршрут.
+Адрес: https://evgeny-markov.github.io/mini-crm/
+
+Сборку делает `.github/workflows/pages.yml` при пуше в `main`. Репозиторий должен быть открытым: на бесплатном плане Pages с закрытого репозитория снаружи не открывается.
+
+Ключи в git не коммитятся. В репозитории на GitHub: **Settings → Secrets and variables → Actions → New repository secret**. Два секрета, значения из локального `.env`:
+
+| Имя секрета | Откуда |
+| --- | --- |
+| `VITE_SUPABASE_URL` | строка `VITE_SUPABASE_URL` |
+| `VITE_SUPABASE_ANON_KEY` | строка `VITE_SUPABASE_ANON_KEY` |
+
+Это публичный адрес проекта и публичный ключ клиента. `service_role` сюда не добавлять: он не должен попасть в сборку. Vite подставляет два публичных значения при сборке, поэтому в готовом сайте ключ клиента есть, а секрет администратора базы — нет.
+
+Дальше **Settings → Pages → Build and deployment → Source: GitHub Actions**. После `git push` откройте вкладку **Actions**: workflow `Pages` должен стать зелёным. Если он упал до добавления секретов, добавьте их и нажмите **Re-run**. Через минуту сайт открывается по адресу выше. Прямой заход на `/mini-crm/objects` работает: в сборку копируется `404.html`.
 
 ## Демо-доступ
 
