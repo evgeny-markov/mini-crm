@@ -1,0 +1,37 @@
+@mixin desktop {
+	@media (min-width: 840px) {
+		@content;
+	}
+}
+
+@mixin mobile {
+	@media (max-width: 839px) {
+		@content;
+	}
+}
+
+@mixin desktop-xl {
+	@media (min-width: 1440px) {
+		@content;
+	}
+}
+
+@mixin desktop-aspect {
+	@include desktop {
+		@media (min-aspect-ratio: 1440 / 786) {
+			@content;
+		}
+	}
+}
+
+@mixin landscape {
+	@media (orientation: landscape) {
+		@content;
+	}
+}
+
+@mixin portrait {
+	@media (orientation: portrait) {
+		@content;
+	}
+}

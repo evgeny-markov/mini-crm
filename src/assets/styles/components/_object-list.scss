@@ -1,0 +1,39 @@
+@use "../variables" as *;
+@use "../functions" as *;
+
+.object-list__heading {
+	margin-bottom: vc(16);
+	font-weight: $font-weight-semibold;
+	font-size: vc(28);
+	color: $color-navy;
+}
+
+.object-list__items {
+	margin-top: vc(16);
+}
+
+.object-list__item {
+	margin-bottom: vc(12);
+}
+
+.object-list__link {
+	display: flex;
+	flex-direction: column;
+	border: 0;
+	border-radius: vc(16);
+	padding: vc(16);
+	box-shadow: $shadow-card;
+	text-decoration: none;
+	background-color: $color-surface;
+}
+
+.object-list__title {
+	font-weight: $font-weight-semibold;
+	font-size: vc(18);
+	color: $color-ink;
+}
+
+.object-list__address {
+	margin-top: vc(4);
+	color: $color-muted;
+}

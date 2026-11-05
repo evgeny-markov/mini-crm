@@ -1,0 +1,7 @@
+@use "../variables" as *;
+@use "../functions" as *;
+
+.page-state {
+	margin-top: vc(12);
+	color: $color-muted;
+}

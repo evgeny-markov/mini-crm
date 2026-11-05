@@ -1,0 +1,36 @@
+---
+description: Менеджер пакетов — npm
+alwaysApply: true
+---
+
+# Пакетный менеджер: npm
+
+В проекте используется **только npm**. Lock-файл — `package-lock.json`. `yarn.lock` / `pnpm-lock.yaml` в репозитории не должны появляться.
+
+## Команды
+
+- Установка зависимостей в окружении разработчика — `npm install`.
+- Установка в CI/Docker (детерминированная, по lock-файлу) — `npm ci`.
+- Запуск скриптов из `package.json` — `npm run <script>` (например, `npm run dev`, `npm run build`).
+- Проброс флагов в скрипт — через `--`: `npm run build -- --mode development`.
+
+## Сборщик
+
+Проект на **TypeScript**: Vite (`vite.config.ts`) + React. Webpack / Create React App не использовать.
+
+- Динамические `require(...)` не использовать — Vite на ESM, нужны статические `import`.
+- Алиас `@/` указывает на `src/` и задаётся одинаково в `vite.config.ts` и `tsconfig`. Внутри `src/` импортировать через `@/`. В `vite.config.ts` и файлах вне `src/` — относительные импорты.
+- Env в клиенте — только `import.meta.env.*`. `process.env.*` в клиентском коде не работает.
+- Публичные переменные клиента: `VITE_SUPABASE_URL` и `VITE_SUPABASE_ANON_KEY`. `service_role` и прочие секреты не писать в `VITE_*`, во фронтенд и в репозиторий.
+
+## Запреты
+
+- Не использовать `yarn` / `pnpm` / `bun` в этом репозитории — иначе разъедутся lock-файлы и поломается воспроизводимость сборки.
+- Не коммитить параллельно `yarn.lock` / `pnpm-lock.yaml` рядом с `package-lock.json`.
+- В Dockerfile, README, CI и любых скриптах — только `npm`.
+
+## Зависимости
+
+Рантайм: `npm install <pkg>`. Dev: `npm install -D <pkg>`. В коммит с новой зависимостью входят и `package.json`, и `package-lock.json`.
+
+Стек клиента: `react`, `react-dom`, `react-router-dom`, `@supabase/supabase-js`. Стили — dev-зависимость `sass`. UI-киты и Tailwind не ставить: стили свои, SCSS.

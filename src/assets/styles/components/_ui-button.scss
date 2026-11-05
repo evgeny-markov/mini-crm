@@ -1,0 +1,45 @@
+@use "../variables" as *;
+@use "../functions" as *;
+
+.ui-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: vc(8);
+	border: 0;
+	border-radius: vc(10);
+	padding: vc(10) vc(14);
+	min-height: vc(40);
+	box-shadow: $shadow-soft;
+	font-weight: $font-weight-semibold;
+	font-size: vc(15);
+	line-height: 1.2;
+	color: $color-ink;
+	background-color: $color-surface;
+	transition: box-shadow $duration-fast $easing-standard;
+	cursor: pointer;
+
+	&:hover {
+		box-shadow: $shadow-card;
+	}
+
+	&:disabled {
+		box-shadow: none;
+		opacity: 0.55;
+		cursor: default;
+	}
+
+	&--primary {
+		color: $color-accent-ink;
+		background-color: $color-accent;
+	}
+
+	&--danger {
+		color: $color-danger;
+		background-color: $color-danger-soft;
+	}
+
+	&--ghost {
+		background-color: $color-field;
+	}
+}

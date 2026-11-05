@@ -1,0 +1,87 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+@use "../functions" as *;
+
+.app-shell__header {
+	display: flex;
+	flex-direction: column;
+	align-items: stretch;
+	padding: vc(16);
+	width: 100%;
+	box-shadow: $shadow-bar;
+	color: $color-on-navy;
+	background-color: $color-navy;
+
+	@include desktop {
+		flex-direction: row;
+		align-items: center;
+		padding: vc(16) vc(28);
+	}
+}
+
+.app-shell__brand {
+	display: flex;
+	flex-direction: column;
+}
+
+.app-shell__title {
+	font-weight: $font-weight-semibold;
+	font-size: vc(18);
+	color: $color-on-navy;
+}
+
+.app-shell__user {
+	margin-top: vc(4);
+	font-size: vc(14);
+	color: $color-on-navy-muted;
+}
+
+.app-shell__nav {
+	display: flex;
+	margin-top: vc(12);
+
+	@include desktop {
+		margin-top: 0;
+		margin-left: vc(24);
+	}
+}
+
+.app-shell__link {
+	margin-right: vc(8);
+	border-radius: vc(10);
+	padding: vc(8) vc(12);
+	font-weight: $font-weight-semibold;
+	text-decoration: none;
+	color: $color-on-navy;
+
+	&.is-current {
+		box-shadow: $shadow-soft;
+		color: $color-accent-ink;
+		background-color: $color-accent;
+	}
+}
+
+.app-shell__main {
+	margin: 0 auto;
+	padding: vc(16);
+	width: 100%;
+	max-width: vc(720);
+
+	@include desktop {
+		padding: vc(28);
+		max-width: vc(960);
+	}
+}
+
+.app-shell__logout {
+	margin-top: vc(12);
+	border: 0;
+	box-shadow: none;
+	color: $color-on-navy;
+	background-color: $color-navy-soft;
+
+	@include desktop {
+		margin-top: 0;
+		margin-left: auto;
+	}
+}

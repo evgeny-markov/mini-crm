@@ -1,0 +1,56 @@
+@use "../variables" as *;
+@use "../functions" as *;
+
+.task-card__back {
+	display: inline-block;
+	margin-bottom: vc(12);
+	font-size: vc(14);
+	text-decoration: none;
+}
+
+.task-card__heading {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.task-card__title {
+	margin-bottom: vc(8);
+	font-weight: $font-weight-semibold;
+	font-size: vc(28);
+	color: $color-navy;
+}
+
+.task-card__meta {
+	margin-top: vc(16);
+	border: 0;
+	border-radius: vc(16);
+	padding: vc(16);
+	box-shadow: $shadow-card;
+	background-color: $color-surface;
+}
+
+.task-card__meta-row {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: vc(6);
+}
+
+.task-card__meta-label {
+	color: $color-muted;
+}
+
+.task-card__description {
+	margin-top: vc(16);
+	border: 0;
+	border-radius: vc(16);
+	padding: vc(16);
+	box-shadow: $shadow-card;
+	white-space: pre-wrap;
+	background-color: $color-surface;
+}
+
+.task-card__toolbar {
+	display: flex;
+	margin-top: vc(16);
+}

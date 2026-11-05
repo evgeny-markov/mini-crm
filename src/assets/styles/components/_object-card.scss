@@ -1,0 +1,60 @@
+@use "../variables" as *;
+@use "../functions" as *;
+
+.object-card__back {
+	display: inline-block;
+	margin-bottom: vc(12);
+	font-size: vc(14);
+	text-decoration: none;
+}
+
+.object-card__title {
+	font-weight: $font-weight-semibold;
+	font-size: vc(28);
+	color: $color-navy;
+}
+
+.object-card__address {
+	margin-top: vc(6);
+	color: $color-muted;
+}
+
+.object-card__toolbar {
+	display: flex;
+	margin-top: vc(16);
+}
+
+.object-card__subtitle {
+	margin-top: vc(24);
+	margin-bottom: vc(12);
+	font-weight: $font-weight-semibold;
+	font-size: vc(20);
+	color: $color-navy;
+}
+
+.object-card__task {
+	margin-bottom: vc(12);
+}
+
+.object-card__task-link {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	border: 0;
+	border-radius: vc(16);
+	padding: vc(16);
+	box-shadow: $shadow-card;
+	text-decoration: none;
+	background-color: $color-surface;
+}
+
+.object-card__task-title {
+	font-weight: $font-weight-semibold;
+	color: $color-ink;
+}
+
+.object-card__task-meta {
+	margin-top: vc(4);
+	margin-bottom: vc(8);
+	color: $color-muted;
+}

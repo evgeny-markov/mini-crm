@@ -1,0 +1,33 @@
+@use "../variables" as *;
+@use "../functions" as *;
+
+.status {
+	display: inline-flex;
+	border-radius: vc(999);
+	padding: vc(4) vc(10);
+	font-weight: $font-weight-semibold;
+	font-size: vc(12);
+	line-height: 1.4;
+	color: $color-status-new-ink;
+	background-color: $color-status-new;
+
+	&--in-progress {
+		color: $color-status-progress-ink;
+		background-color: $color-status-progress;
+	}
+
+	&--review {
+		color: $color-status-review-ink;
+		background-color: $color-status-review;
+	}
+
+	&--accepted {
+		color: $color-status-accepted-ink;
+		background-color: $color-status-accepted;
+	}
+
+	&--rework {
+		color: $color-status-rework-ink;
+		background-color: $color-status-rework;
+	}
+}

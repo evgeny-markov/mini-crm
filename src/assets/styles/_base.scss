@@ -1,0 +1,63 @@
+@use "variables" as *;
+@use "mixins" as *;
+@use "functions" as *;
+
+:root {
+	--width-base: 360;
+	--width-current: 100vmin;
+	--width-multiplier: var(--width-current) / var(--width-base);
+
+	@include desktop {
+		--width-base: 1440;
+		--width-current: 100vw;
+	}
+
+	@include desktop-aspect {
+		--width-base: 786;
+		--width-current: 100vh;
+	}
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	font-family: $font-family-base;
+	font-weight: $font-weight-regular;
+	font-size: vc(16);
+	line-height: 1.45;
+	color: $color-ink;
+	background-color: $color-bg;
+}
+
+h1,
+h2,
+p,
+dl,
+dd {
+	margin: 0;
+}
+
+ul,
+ol {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+button,
+input,
+textarea,
+select {
+	font: inherit;
+	color: inherit;
+}
+
+a {
+	color: $color-accent;
+}

@@ -1,0 +1,44 @@
+@use "../variables" as *;
+@use "../functions" as *;
+
+.history {
+	margin-top: vc(28);
+}
+
+.history__title {
+	margin-bottom: vc(12);
+	font-weight: $font-weight-semibold;
+	font-size: vc(20);
+	color: $color-navy;
+}
+
+.history__item {
+	margin-bottom: vc(12);
+	border: 0;
+	border-radius: vc(16);
+	padding: vc(14);
+	box-shadow: $shadow-card;
+	background-color: $color-surface;
+}
+
+.history__line {
+	display: flex;
+	flex-direction: column;
+	font-weight: $font-weight-semibold;
+}
+
+.history__time {
+	margin-top: vc(2);
+	font-weight: $font-weight-regular;
+	font-size: vc(13);
+	color: $color-muted;
+}
+
+.history__change {
+	margin-top: vc(4);
+}
+
+.history__comment {
+	margin-top: vc(4);
+	color: $color-muted;
+}

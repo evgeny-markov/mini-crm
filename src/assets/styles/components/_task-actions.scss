@@ -1,0 +1,11 @@
+@use "../functions" as *;
+
+.task-actions {
+	margin-top: vc(20);
+}
+
+.task-actions__row {
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: vc(12);
+}

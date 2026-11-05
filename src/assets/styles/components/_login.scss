@@ -1,0 +1,32 @@
+@use "../variables" as *;
+@use "../functions" as *;
+
+.login {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: vc(24) vc(16);
+	min-height: 100vh;
+}
+
+.login__panel {
+	border: 0;
+	border-radius: vc(20);
+	padding: vc(24);
+	width: 100%;
+	max-width: vc(420);
+	box-shadow: $shadow-card;
+	background-color: $color-surface;
+}
+
+.login__title {
+	font-weight: $font-weight-semibold;
+	font-size: vc(28);
+	color: $color-navy;
+}
+
+.login__lead {
+	margin-top: vc(8);
+	margin-bottom: vc(16);
+	color: $color-muted;
+}

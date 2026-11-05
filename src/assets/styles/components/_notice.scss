@@ -1,0 +1,13 @@
+@use "../variables" as *;
+@use "../functions" as *;
+
+.notice {
+	margin-top: vc(12);
+	margin-bottom: vc(12);
+	border: 0;
+	border-radius: vc(12);
+	padding: vc(12);
+	box-shadow: $shadow-soft;
+	color: $color-danger;
+	background-color: $color-danger-soft;
+}

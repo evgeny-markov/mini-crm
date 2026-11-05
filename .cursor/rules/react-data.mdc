@@ -1,0 +1,37 @@
+---
+description: Данные React-клиента — Supabase, роли, смена статуса задачи
+globs: "**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+# React: данные и действия
+
+Клиент Supabase — один модуль `src/lib/supabase.ts`, только `VITE_SUPABASE_URL` и `VITE_SUPABASE_ANON_KEY`.
+
+Статус с клиента не обновляется. Любая смена статуса — `transition_task`. Прямой `update` колонки `status` запрещён и в интерфейсе.
+
+```ts
+// ❌
+await supabase.from("tasks").update({ status: "in_progress" }).eq("id", id);
+
+// ✅
+await supabase.rpc("transition_task", {
+  task_id: id,
+  to_status: "in_progress",
+  comment: null,
+});
+```
+
+Постановщик меняет название, описание, объект и исполнителя обычным `update` без `status`. Исполнитель поля задачи не редактирует. История только читается; insert, update и delete истории с клиента нет.
+
+Кнопки перехода — одна таблица «роль + статус» в `src/lib/task-actions.ts`, карточка задачи её только отображает:
+
+| Статус | `executor` | `manager` |
+| --- | --- | --- |
+| `new` | в работу | — |
+| `in_progress` | на проверку | — |
+| `review` | — | принять; на доработку, комментарий обязателен |
+| `rework` | в работу | — |
+| `accepted` | — | — |
+
+Ошибку Supabase/Postgres показывать текстом на экране. Список и так ограничивает RLS: отсутствующую кнопку не заменяют обходом через другой запрос.

@@ -1,0 +1,42 @@
+@use "../variables" as *;
+@use "../functions" as *;
+
+.task-list__heading {
+	margin-bottom: vc(16);
+	font-weight: $font-weight-semibold;
+	font-size: vc(28);
+	color: $color-navy;
+}
+
+.task-list__item {
+	margin-bottom: vc(12);
+}
+
+.task-list__link {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	border: 0;
+	border-radius: vc(16);
+	padding: vc(16);
+	box-shadow: $shadow-card;
+	text-decoration: none;
+	background-color: $color-surface;
+}
+
+.task-list__title {
+	font-weight: $font-weight-semibold;
+	color: $color-ink;
+}
+
+.task-list__object {
+	margin-top: vc(4);
+	margin-bottom: vc(8);
+	color: $color-muted;
+}
+
+.task-list__back {
+	display: inline-block;
+	margin-top: vc(12);
+	text-decoration: none;
+}

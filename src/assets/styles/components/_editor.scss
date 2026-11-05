@@ -1,0 +1,18 @@
+@use "../variables" as *;
+@use "../functions" as *;
+
+.editor {
+	margin-top: vc(16);
+	border: 0;
+	border-radius: vc(16);
+	padding: vc(16);
+	box-shadow: $shadow-card;
+	background-color: $color-surface;
+}
+
+.editor__title {
+	margin-bottom: vc(12);
+	font-weight: $font-weight-semibold;
+	font-size: vc(18);
+	color: $color-navy;
+}
