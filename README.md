@@ -33,7 +33,9 @@ npm run build
 npm run lint:style
 ```
 
-Фронтенд рассчитан на Vercel: в настройках проекта те же две переменные `VITE_SUPABASE_URL` и `VITE_SUPABASE_ANON_KEY`. `vercel.json` отдаёт `index.html` на клиентские маршруты.
+Сайт публикуется на GitHub Pages: https://evgeny-markov.github.io/mini-crm/
+
+Сборка идёт из `.github/workflows/pages.yml`. Две публичные переменные задаются секретами репозитория `VITE_SUPABASE_URL` и `VITE_SUPABASE_ANON_KEY` (Settings → Secrets and variables → Actions). В git их нет: Vite подставляет их в сборку. В готовом сайте оказывается только публичный ключ клиента. `service_role` туда не входит. Для прямого адреса вроде `/objects` в сборку копируется `404.html`, иначе GitHub Pages не отдаст клиентский маршрут.
 
 ## Демо-доступ
 

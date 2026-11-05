@@ -8,10 +8,16 @@ import { ObjectPage } from "@/pages/object/ObjectPage"
 import { ObjectsPage } from "@/pages/objects/ObjectsPage"
 import { TaskPage } from "@/pages/task/TaskPage"
 
+function routerBasename(): string | undefined {
+  const base = import.meta.env.BASE_URL
+  if (!base || base === "/") return undefined
+  return base.endsWith("/") ? base.slice(0, -1) : base
+}
+
 export function App() {
   return (
     <AuthProvider>
-      <BrowserRouter>
+      <BrowserRouter basename={routerBasename()}>
         <Routes>
           <Route element={<LoginPage />} path="/login" />
           <Route element={<RequireAuth />}>
